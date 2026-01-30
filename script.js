@@ -77,7 +77,7 @@ btn.addEventListener("click", () => {
   if (text.style.maxHeight === "0px" || text.style.maxHeight === "") {
     text.style.maxHeight = text.scrollHeight + "px";
     text.style.padding = "20px";
-    btn.textContent = "დაკეცვა";
+    btn.textContent = "close";
   } else {
     text.style.maxHeight = "0";
     text.style.padding = "0 20px";
@@ -86,7 +86,7 @@ btn.addEventListener("click", () => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  const btn = document.getElementById("call");
+  const btn = document.getElementById("openPhone");
 
   btn.addEventListener("click", function () {
     alert("ნამდვილად გინდა დარეკვა?");
@@ -94,11 +94,50 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-document.getElementById("subscribeBtn").addEventListener("click", function () {
-  const email = document.getElementById("email").value.trim();
-  if (email) {
-    alert("Your email: " + email);
+document.addEventListener("DOMContentLoaded", function () {
+  const btn = document.getElementById("subscribeBtn");
+  const emailInput = document.getElementById("email");
+  const errorMsg = document.getElementById("errorMsg");
+
+  btn.addEventListener("click", function () {
+    const email = emailInput.value.trim();
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(email)) {
+      errorMsg.style.display = "block";
+      errorMsg.textContent =
+        "გთხოვთ შეიყვანოთ სწორი ემაილი — ეს ემაილი არასწორია";
+      return;
+    }
+
+    errorMsg.style.display = "none";
+
+    console.log("გაიგზავნა:", email);
+    alert("Email წარმატებით გაიგზავნა ✅");
+
+    emailInput.value = "";
+  });
+});
+
+const btn_1 = document.querySelector(".but_10");
+const text_1 = document.getElementById("about");
+
+btn_1.addEventListener("click", () => {
+  if (text_1.style.maxHeight === "0px" || text_1.style.maxHeight === "") {
+    text_1.style.maxHeight = text_1.scrollHeight + "px";
+    text_1.style.padding = "20px";
+    btn_1.textContent = "Close";
   } else {
-    alert("გთხოვთ შეიყვანოთ თქვენი იმეილი!!!");
+    text_1.style.maxHeight = "0px";
+    text_1.style.padding = "0 20px";
+    btn_1.textContent = "Be A Volunteer";
   }
 });
+
+function scrollToPlace() {
+  window.scrollTo({
+    top: 100,
+    behavior: "smooth",
+  });
+}

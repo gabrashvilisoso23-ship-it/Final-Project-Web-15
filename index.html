@@ -7,8 +7,6 @@
     <title>Final Project Web 15</title>
   </head>
   <body>
-    <script src="script.js"></script>
-
     <div class="background">
       <div class="img_kutxe">
         <img src="imges/kutxe.png" alt="kutxe" />
@@ -56,7 +54,6 @@
     </div>
 
     <div class="text_cha"><h1 class="text_cha">CHA</h1></div>
-    <!-- </div> -->
 
     <div class="text_3">
       <div class="text_99">
@@ -300,7 +297,12 @@
             goods or time and effort to those who need it.
           </p>
         </div>
-        <div><button class="but_10">Be A Volunteer</button></div>
+        <div id="about">
+          <p>წაკითხულია</p>
+        </div>
+        <div>
+          <button class="but_10">Be A Volunteer</button>
+        </div>
       </div>
       <div class="foto_6"><img src="imges/pic (1).png" alt="providing" /></div>
     </div>
@@ -441,8 +443,10 @@
         </div>
       </div>
       <div>
-        <button class="but_con" id="open">Contact Us</button>
-        <button class="button_make">Make A Donation</button>
+        <button class="but_con" id="openPhone">Contact Us</button>
+        <button class="button_make" onclick="scrollToPlace()">
+          Make A Donation
+        </button>
       </div>
     </div>
 
@@ -684,6 +688,7 @@
         </div>
         <div class="input">
           <label for="email"></label>
+          <p id="errorMsg"></p>
           <input
             class="in"
             type="email"
@@ -803,5 +808,6 @@
         </div>
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
